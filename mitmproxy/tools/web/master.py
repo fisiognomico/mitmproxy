@@ -99,7 +99,7 @@ class WebMaster(master.Master):
 
         # Add our web app.
         http_server = tornado.httpserver.HTTPServer(
-            self.app, max_buffer_size=2**32
+            self.app, max_buffer_size=2**32, xheaders=True
         )  # 4GB
         try:
             http_server.listen(self.options.web_port, self.options.web_host)
